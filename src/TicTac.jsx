@@ -3,7 +3,8 @@ import './style.css';
 import Tic2 from './assets/tic2.png';
 
 const TicTac = () => {
-    const [board, setBoard] = useState(Array(9).fill(null));
+    const initialBoard = Array(9).fill(null);
+    const [board, setBoard] = useState(initialBoard);
     const [next, setNext] = useState(true);
     const [gameStarted, setGameStarted] = useState(false);
     const [time, setTime] = useState(0);
@@ -11,6 +12,7 @@ const TicTac = () => {
     const [gameOver, setGameOver] = useState(false);
 
     const handleClick = (i) => {
+        if (!gameStarted) return;
         const newBoard = [...board];
         if (newBoard[i] || calculateWinner(newBoard)) {
             return;
@@ -24,6 +26,9 @@ const TicTac = () => {
             setWinner(calculateWinnerResult);
             setGameOver(true); 
         }
+    else if (newBoard.every((box) => box !== null)) {
+        setGameOver(true);
+    }
     };
 
     useEffect(() => {
@@ -38,6 +43,36 @@ const TicTac = () => {
         };
     }, [gameStarted, winner]);
 
+    useEffect(() => {
+        if (gameOver) {
+            setBoard(initialBoard);
+        }
+    }, [gameOver]);
+
+    const calculateWinner = (squares) => {
+        const lines = [
+            [0, 1, 2],
+            [3, 4, 5],
+            [6, 7, 8],
+            [0, 3, 6],
+            [1, 4, 7],
+            [2, 5, 8],
+            [0, 4, 8],
+            [2, 4, 6],
+        ];
+        for (let i = 0; i < lines.length; i++) {
+            const [a, b, c] = lines[i];
+            if (squares [a] && squares[a] === squares[b] && squares[b] === squares[c] && squares[c]){
+                return squares[a];
+            }
+            // if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+            //     return squares[a];
+            // }
+        }
+        return null;
+    };
+    
+
     return (
         <>
             <div className='wrapper'>
@@ -48,7 +83,11 @@ const TicTac = () => {
                             <h3>Time taken: {time} sec.</h3>
                         </div>
                         <div className='full-board'>
+                     
                             <div className='board'>
+                                   {/* {board.map((box, index) => (
+                                    <div className='box' key={index} onClick={() => handleClick(index)}>{box}</div>
+                                ))} */}
                                 <div className='box' onClick={() =>
                                      handleClick(0)}>{board[0]}
                                      </div>
@@ -100,28 +139,12 @@ const TicTac = () => {
                 </div>
             </div>
         </>
-    );
+    ); 
 };
 
-const calculateWinner = (squares) => {
-    const lines = [
-        [0, 1, 2],
-        [3, 4, 5],
-        [6, 7, 8],
-        [0, 3, 6],
-        [1, 4, 7],
-        [2, 5, 8],
-        [0, 4, 8],
-        [2, 4, 6],
-    ];
-    for (let i = 0; i < lines.length; i++) {
-        const [a, b, c] = lines[i];
-        if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-            return squares[a];
-        }
-    }
-    return null;
-};
+
+
+
 
 export default TicTac;
 

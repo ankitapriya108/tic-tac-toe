@@ -59,12 +59,11 @@
     justify-content: center;
     align-items: center;
 }
-button {
+.start button {
     border-radius: 20px;
     height: 60px;
     width: 190px;
     border: 2px solid #a95e21;
-    /* margin-top: 3rem; */
     background-color: black;
     color: #a95e21;
     font-weight: 900;
@@ -84,4 +83,14 @@ button {
 }
 .game-over h3{
 padding-top: 10px;
+}
+.try-again button{
+    border-radius: 20px;
+    height: 60px;
+    width: 190px;
+    border: 2px solid #a95e21;
+    background-color: black;
+    color: #a95e21;
+    font-weight: 900;
+    font-size: 25px;
 }
