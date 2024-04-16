@@ -94,3 +94,107 @@ padding-top: 10px;
     font-weight: 900;
     font-size: 25px;
 }
+@media screen and (max-width: 1010px){
+.time{
+    width: 140px;
+}
+.winner{
+    width: 140px;
+}
+}
+@media screen and (max-width: 900px){
+    .time{
+        width: 131px;
+        font-size: 15px;
+        padding: 7px;
+    }
+    .winner{
+        padding: 7px;
+        width: 90px;
+        font-size: 15px;
+    } 
+    .game-box{
+        gap: 3rem ;
+    }
+}
+@media screen and (max-width: 650px){
+    .box {
+        height: 80px;
+        width: 80px;
+        padding-top: 15px;
+    }
+    .start button {
+        
+        height: 50px;
+        width: 160px;
+        font-size: 20px;
+        margin-left: 2rem;
+    }
+}
+@media screen and (max-width: 570px){
+    .time {
+        width: 120px;
+        font-size: 11px;
+    }
+    .winner{
+        width: 120px;
+        font-size: 11px;
+    }
+    .game-box {
+        gap: 1rem;
+    }
+    .box {
+        height: 60px;
+        width: 60px;
+        padding-top: 13px;
+        font-size: 28px;
+    }
+    .start button {
+        height: 40px;
+        width: 120px;
+        font-size: 13px;
+        margin-left: 1rem;
+    }
+
+}
+@media screen and (max-width: 450px){
+    .winner {
+        width: 100px;
+        font-size: 9px;
+    }
+    .time {
+        width: 100px;
+        font-size: 9px;
+    }
+    .game-box{
+        gap: 5px;
+    }
+    .start button {
+        height: 35px;
+        width: 100px;
+    }
+    .box {
+        height: 50px;
+        width: 50px;
+    }
+}
+@media screen and (max-width: 380px){
+    .time{
+        width: 80px;
+    }
+    .winner{
+        width: 80px;
+    }
+    .box {
+        height: 40px;
+        width: 40px;
+        padding-top: 5px;
+        font-size: 24px;
+    }
+    .start button {
+        margin-left: 0rem;
+    }
+}
+
+
+

@@ -41,7 +41,7 @@ const TicTac = () => {
         return () => {
             clearInterval(interval);
         };
-    }, [gameStarted, winner]);
+    }, [gameStarted, winner,gameOver]);
 
     useEffect(() => {
         if (gameOver) {
